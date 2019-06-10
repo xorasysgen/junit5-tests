@@ -21,7 +21,7 @@ public class CalcTest {
 	@Test
 	@DisplayName("Case For 0 number of param")
 	void calcCase2() {
-		assertEquals(0, calc.Calculator());
+		assertEquals(null, calc.Calculator());
 	}
 
 }
