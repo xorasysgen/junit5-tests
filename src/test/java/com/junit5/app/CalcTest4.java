@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.condition.EnabledOnJre;
@@ -22,7 +23,7 @@ import com.junit5.app.java8.Calc;
 @DisplayName("CalcTest4") /* Declares a custom display name for the test class or test method */
 public class CalcTest4 {
 	private Calc calc;
-	static final Logger logger=Logger.getLogger(CalcTest3.class.getName());
+	static final Logger logger=Logger.getLogger(CalcTest4.class.getName());
 	@BeforeEach
 	void init() {
 		logger.info("Object creation...");
@@ -56,10 +57,15 @@ public class CalcTest4 {
 
 	
 	@RepeatedTest(5) // run 5 times
-	@DisabledIf("Math.random() < 0.314159")
+	@DisabledIf("0.5 < 0.314159")
 	void mightNotBeExecuted() {
-		logger.info("mightNotBeExecuted");
+		logger.info("might Not Be Executed");
 	}
+	
+	@RepeatedTest(5)
+    void repeatedTestWithRepetitionInfo(RepetitionInfo repetitionInfo) {
+        assertEquals(4, repetitionInfo.getTotalRepetitions());
+    }
 	
 	@AfterEach
 	void clenUp() {
