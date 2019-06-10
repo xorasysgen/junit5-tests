@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import java.util.logging.Logger;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,15 +20,15 @@ import com.junit5.app.java8.Calc;
 public class CalcTest3 {
 
 	private Calc calc;
-
+	static final Logger logger=Logger.getLogger(CalcTest3.class.getName());
 	@BeforeAll
 	static void initAll() {
-		System.out.println("Before all:Test case started...");
+		logger.info("Before all:Test case started...");
 	}
 
 	@BeforeEach
 	void init() {
-		System.out.println("Object creation...");
+		logger.info("Object creation...");
 		calc = new Calc();
 	}
 
@@ -67,7 +69,7 @@ public class CalcTest3 {
 	
 	@AfterEach
 	void clenUp() {
-		System.out.println("Clean Up Memory...");
+		logger.info("Clean Up Memory...");
 		calc = null;
 	}
 

@@ -2,6 +2,8 @@ package com.junit5.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.logging.Logger;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,16 +17,17 @@ import com.junit5.app.java8.Calc;
 public class CalcTest2 {
 	
 	private Calc calc;
+	static final Logger logger=Logger.getLogger(CalcTest2.class.getName());
 	
 	@BeforeAll
     static void initAll() {
-		System.out.println("Before all:Test case started...");
+		logger.info("Before all:Test case started...");
     }
 	
 	
 	@BeforeEach
 	void init() {
-		System.out.println("Object creation...");
+		logger.info("Object creation...");
 		calc=new Calc();
 	}
 	
@@ -42,12 +45,12 @@ public class CalcTest2 {
 	
 	@AfterEach
 	void clenUp() {
-		System.out.println("Clean Up Memory...");
+		logger.info("Clean Up Memory...");
 		calc=null;
 	}
 	
 	@AfterAll
     static void tearDownAll() {
-		System.out.println("After all:Test case completed...");
+		logger.info("After all:Test case completed...");
     }
 }
