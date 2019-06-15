@@ -25,19 +25,24 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:26.0-jre'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    // Use JUnit5 test framework
+     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+	compile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.2'
+    
+    
     
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
 	compile group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.1.5.RELEASE'
+	
     // https://mvnrepository.com/artifact/commons-logging/commons-logging
 	compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
+	
 	// https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client
 	compile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.28'
 	// https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-multipart
 	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.28'
-	// https://mvnrepository.com/artifact/org.glassfish.jersey.inject/jersey-hk2
 	// https://mvnrepository.com/artifact/org.glassfish.jersey.inject/jersey-hk2
 	compile group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.28'
 

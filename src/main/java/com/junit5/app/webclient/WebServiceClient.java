@@ -34,8 +34,9 @@ public class WebServiceClient {
 			client.property(ClientProperties.READ_TIMEOUT, 30000);// Setting read timed out equivalent it server not
 																	// responding in specified time 30 seconds
 			final WebTarget target = client.target(URLDecoder.decode(targetIP.concat(targetURI), StandardCharsets.UTF_8.toString()));
-			final FileDataBodyPart form  = new FileDataBodyPart("file", new File("C:\\Users\\Admin\\Desktop\\OODBr.pdf"));
-			form.setContentDisposition(FormDataContentDisposition.name("file").fileName("OODBr.pdf").build());
+			File file=new File("E:\\81\\linux-book-materials6.pdf");
+			final FileDataBodyPart form  = new FileDataBodyPart("file", file);
+			form.setContentDisposition(FormDataContentDisposition.name("file").fileName("linux-book-mater.pdf").build());
 			 String emailParameters = "{ \"accessKey\" :\"Uwin.SSP.19\", \"dataSourceAgencyName\":\"NIC\", \"contentType\":\"text/html\", \"to\":\"write2sirfsushil@gmail.com\", \"cc\":\"sushil_bhaskar@hotmail.com\", \"bcc\":\"write2sirfsushil@gmail.com\", \"subject\":\"email attachment service\" , \"emailBody\":\"Email With Attachment service\" }";
 			@SuppressWarnings("resource")
 			final MultiPart multipartEntity = new FormDataMultiPart().field("emailParameters", emailParameters, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(form);
@@ -50,6 +51,10 @@ public class WebServiceClient {
 			return null;
 		}
 
+	}
+	
+	public static void main(String[] args) {
+		new WebServiceClient().callEmailWebService();
 	}
 	
 
