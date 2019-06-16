@@ -1,6 +1,7 @@
 package com.junit5.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.logging.Logger;
 
@@ -25,7 +26,7 @@ public class PasswordHashingTest7 {
 	@Test
 	@DisplayName("bcrypt Testing")
 	void BcryptTest() {
-		String password=passwordHashing.EncodePassword__Bcrypt("Either plainPassword or cypherPassword field is null");
+		String password=passwordHashing.EncodePassword__Bcrypt("Xorasysgen00#$%^&");
 		logger.info("Encoded password # " + password);
 		
 	}
@@ -33,12 +34,18 @@ public class PasswordHashingTest7 {
 	@Test
 	@DisplayName("Password Matcher")
 	void PasswordMatcher() {
-		assertEquals(true, passwordHashing.validatePasssword__Bcrypt("Sushil", "$2a$10$ncSTr3IYnn42glQsn42oguoiejFdNu8S.MK.ctnR7tfi8HqL5URnW"));
-		assertEquals(true, passwordHashing.validatePasssword__Bcrypt("Sushil", "$2a$10$s4QHQ8KBBZRPHHHaDqv5LOvHMb9LmPLyCltCU.GBihlaYTPs1i1Ge"));
-		assertEquals(false, passwordHashing.validatePasssword__Bcrypt("Sushijfgj", "$2a$10$fTd4Vs/rhqFyPMY0dp9UBewU7LdrPOVOXRELpDX6/vvW1AixIt/zq"));
-		assertEquals(false, passwordHashing.validatePasssword__Bcrypt(null, "$2a$10$fTd4Vs/rhqFyPMY0dp9UBewU7LdrPOVOXRELpDX6/vvW1AixIt/zq"));
-		
+		boolean expected=true;
+		boolean actual=passwordHashing.validatePasssword__Bcrypt("Sushil", "$2a$10$ncSTr3IYnn42glQsn42oguoiejFdNu8S.MK.ctnR7tfi8HqL5URnW");
+		assertEquals(expected,actual,"this should not be succeed" );
+				
 	}
 	
+	
+	@Test
+	@DisplayName("Exception testing")
+	void PasswordMatcherException() {
+		assertThrows(NullPointerException.class,
+				()-> passwordHashing.validatePasssword__Bcrypt(null, "$2a$10$ncSTr3IYnn42glQsn42oguoiejFdNu8S.MK.ctnR7tfi8HqL5URnW"),"Exception is not thrown");
+	}
 
 }
