@@ -16,10 +16,11 @@ build
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
-/bin/*
+/bin/
 /target/
 .classpath
 .project
 .settings/
 .springBeans
 .sts4-cache
+
