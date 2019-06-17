@@ -18,7 +18,7 @@ public class CalcTest {
 	@Test /* Denotes that a method is a test method */
 	@DisplayName("Case For n numbers of param") /* Declares a custom display name for the test class or test method. */
 	void calcCase1() {
-		logger.info("Calculator with n number of param");
+		//logger.info("Calculator with n number of param");
 		assertEquals(21, calc.Calculator(1,2,3,4,5,6));
 	}
 	

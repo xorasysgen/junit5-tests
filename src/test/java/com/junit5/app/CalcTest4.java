@@ -22,8 +22,10 @@ import com.junit5.app.java8.Calc;
 
 @DisplayName("CalcTest4") /* Declares a custom display name for the test class or test method */
 public class CalcTest4 {
+	
 	private Calc calc;
 	static final Logger logger=Logger.getLogger(CalcTest4.class.getName());
+	
 	@BeforeEach
 	void init() {
 		logger.info("Object creation...");
@@ -64,7 +66,7 @@ public class CalcTest4 {
 	
 	@RepeatedTest(5)
     void repeatedTestWithRepetitionInfo(RepetitionInfo repetitionInfo) {
-        assertEquals(4, repetitionInfo.getTotalRepetitions());
+        assertEquals(5, repetitionInfo.getTotalRepetitions());
     }
 	
 	@AfterEach
