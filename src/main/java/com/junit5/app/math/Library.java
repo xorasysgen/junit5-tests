@@ -4,7 +4,21 @@
 package com.junit5.app.math;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+	
+    public String getFruit(Integer rank) {
+    	
+    	switch(rank) {
+	    	case 1 : return "Pineapple";
+	    	case 2 : return "Bananas";
+	    	case 3 : return "Cherries";
+	    	case 4 : return "Clementines";
+	    	case 5 : return "APPLE";
+	    	case 6 : return "Plums";
+	    	case 7 : return "Strawberries";
+	    	case 8 : return "Mango";
+	    	case 9 : return "Grapes";
+	    	case 10 : return "Peaches";
+	    	default : return "Nothing";
+    	}
     }
 }
