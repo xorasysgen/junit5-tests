@@ -48,32 +48,54 @@ BeforeAllCallback
 AfterAllCallback
 ```
 
+JUnit Jupiter always guarantees wrapping behavior for multiple registered extensions that implement lifecycle callbacks such as BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback, BeforeTestExecutionCallback, and AfterTestExecutionCallback.
+
+That means that, given two extensions Extension1 and Extension2 with Extension1 registered before Extension2, any "before" callbacks implemented by Extension1 are guaranteed to execute before any "before" callbacks implemented by Extension2. Similarly, given the two same two extensions registered in the same order, any "after" callbacks implemented by Extension1 are guaranteed to execute after any "after" callbacks implemented by Extension2. Extension1 is therefore said to wrap Extension2.
+
+JUnit Jupiter also guarantees wrapping behavior within class and interface hierarchies for user-supplied lifecycle methods (see Test Classes and Methods).
+
+@BeforeAll methods are inherited from superclasses as long as they are not hidden or overridden. Furthermore, @BeforeAll methods from superclasses will be executed before @BeforeAll methods in subclasses.
+
+Similarly, @BeforeAll methods declared in an interface are inherited as long as they are not hidden or overridden, and @BeforeAll methods from an interface will be executed before @BeforeAll methods in the class that implements the interface.
+
+@AfterAll methods are inherited from superclasses as long as they are not hidden or overridden. Furthermore, @AfterAll methods from superclasses will be executed after @AfterAll methods in subclasses.
+
+Similarly, @AfterAll methods declared in an interface are inherited as long as they are not hidden or overridden, and @AfterAll methods from an interface will be executed after @AfterAll methods in the class that implements the interface.
+
+@BeforeEach methods are inherited from superclasses as long as they are not overridden. Furthermore, @BeforeEach methods from superclasses will be executed before @BeforeEach methods in subclasses.
+
+Similarly, @BeforeEach methods declared as interface default methods are inherited as long as they are not overridden, and @BeforeEach default methods will be executed before @BeforeEach methods in the class that implements the interface.
+
+@AfterEach methods are inherited from superclasses as long as they are not overridden. Furthermore, @AfterEach methods from superclasses will be executed after @AfterEach methods in subclasses.
+
+Similarly, @AfterEach methods declared as interface default methods are inherited as long as they are not overridden, and @AfterEach default methods will be executed after @AfterEach methods in the class that implements the interface.
+
 ```html
 Step	Interface/Annotation	Description
 1 interface org.junit.jupiter.api.extension.BeforeAllCallback
-extension code executed before all tests of the container are executed
+	extension code executed before all tests of the container are executed
 2 annotation org.junit.jupiter.api.BeforeAll
-user code executed before all tests of the container are executed
+	user code executed before all tests of the container are executed
 3 interface org.junit.jupiter.api.extension.BeforeEachCallback
-extension code executed before each test is executed
+	extension code executed before each test is executed
 4 annotation org.junit.jupiter.api.BeforeEach
-user code executed before each test is executed
+	user code executed before each test is executed
 5 interface org.junit.jupiter.api.extension.BeforeTestExecutionCallback
-extension code executed immediately before a test is executed
+	extension code executed immediately before a test is executed
 6 annotation org.junit.jupiter.api.Test
-user code of the actual test method
+	user code of the actual test method
 7 interface org.junit.jupiter.api.extension.TestExecutionExceptionHandler
-extension code for handling exceptions thrown during a test
+	extension code for handling exceptions thrown during a test
 8 interface org.junit.jupiter.api.extension.AfterTestExecutionCallback
-extension code executed immediately after test execution and its corresponding exception handlers
+	extension code executed immediately after test execution and its corresponding exception handlers
 9 annotation org.junit.jupiter.api.AfterEach
-user code executed after each test is executed
+	user code executed after each test is executed
 10 interface org.junit.jupiter.api.extension.AfterEachCallback
-extension code executed after each test is executed
+	extension code executed after each test is executed
 11 annotation org.junit.jupiter.api.AfterAll
-user code executed after all tests of the container are executed
+	user code executed after all tests of the container are executed
 12 interface org.junit.jupiter.api.extension.AfterAllCallback
-extension code executed after all tests of the container are executed
+	extension code executed after all tests of the container are executed
 ```
 
 
