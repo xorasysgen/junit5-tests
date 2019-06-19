@@ -11,12 +11,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestReporter;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import com.junit5.app.ext.TimingExtension;
 import com.junit5.app.java8.Calc;
 
 @Tag("Statistics")
+@ExtendWith(TimingExtension.class)
 public class CsvFileSourceFibonacciParameterizedTest {
 	
 
@@ -38,10 +41,10 @@ public class CsvFileSourceFibonacciParameterizedTest {
 	}
 	
 	@ParameterizedTest(name = "{index}.  Number={0} , Fibonacci={1}")
-	@CsvFileSource(resources = "/fib.csv", numLinesToSkip = 0)
+	@CsvFileSource(resources = "/fib.csv", numLinesToSkip = 1)
 	@DisplayName("CSV Reader fibonacci Test")
 	@Tag("Trading")
-	void csvTest(Long input,String expected) {
+	void csvReaderFibonacciTest(Long input,String expected) {
 		assertEquals(expected,calc.fibonacii(input).toString());
 	}
 	

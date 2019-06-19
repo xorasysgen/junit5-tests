@@ -37,5 +37,92 @@ Test classes must not be abstract and must have a single constructor.
 * @TempDir Used to supply a temporary directory via field injection or parameter injection in a lifecycle method or test method; located in the org.junit.jupiter.api.io package.
 
 
+# Test Lifecycle Callbacks
+The following interfaces define the APIs for extending tests at various points in the test execution lifecycle
+```js
+BeforeAllCallback
+	BeforeEachCallback
+		BeforeTestExecutionCallback
+		AfterTestExecutionCallback
+	AfterEachCallback
+AfterAllCallback
+```
+
+```html
+Step	Interface/Annotation	Description
+1
+
+interface org.junit.jupiter.api.extension.BeforeAllCallback
+
+extension code executed before all tests of the container are executed
+
+2
+
+annotation org.junit.jupiter.api.BeforeAll
+
+user code executed before all tests of the container are executed
+
+3
+
+interface org.junit.jupiter.api.extension.BeforeEachCallback
+
+extension code executed before each test is executed
+
+4
+
+annotation org.junit.jupiter.api.BeforeEach
+
+user code executed before each test is executed
+
+5
+
+interface org.junit.jupiter.api.extension.BeforeTestExecutionCallback
+
+extension code executed immediately before a test is executed
+
+6
+
+annotation org.junit.jupiter.api.Test
+
+user code of the actual test method
+
+7
+
+interface org.junit.jupiter.api.extension.TestExecutionExceptionHandler
+
+extension code for handling exceptions thrown during a test
+
+8
+
+interface org.junit.jupiter.api.extension.AfterTestExecutionCallback
+
+extension code executed immediately after test execution and its corresponding exception handlers
+
+9
+
+annotation org.junit.jupiter.api.AfterEach
+
+user code executed after each test is executed
+
+10
+
+interface org.junit.jupiter.api.extension.AfterEachCallback
+
+extension code executed after each test is executed
+
+11
+
+annotation org.junit.jupiter.api.AfterAll
+
+user code executed after all tests of the container are executed
+
+12
+
+interface org.junit.jupiter.api.extension.AfterAllCallback
+
+extension code executed after all tests of the container are executed
+```
+
+
 # Reference
 * https://junit.org/junit5/docs/current/user-guide/
