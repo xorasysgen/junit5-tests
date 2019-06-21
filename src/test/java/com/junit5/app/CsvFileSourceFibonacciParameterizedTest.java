@@ -49,14 +49,14 @@ public class CsvFileSourceFibonacciParameterizedTest {
 	@CsvFileSource(resources = "/fib.csv", numLinesToSkip = 1)
 	@DisplayName("CSV Reader fibonacci Test")
 	@Tag("Trading")
-	@Disabled("@Disabled until CSV Reader Factorial Test #Fact active")
+	//@Disabled("@Disabled until CSV Reader Factorial Test #Fact active")
 	void csvReaderFibonacciTest(Long input,String expected) {
 		assertEquals(expected,calc.fibonacii(input).toString());
-		assertTimeoutPreemptively(ofMillis(3000),() -> calc.fibonacii(input));
-		assertTimeout(ofMillis(3000), () -> calc.fibonacii(input));
+		assertTimeoutPreemptively(ofMillis(5000),() -> calc.fibonacii(input));
+		assertTimeout(ofMillis(5000), () -> calc.fibonacii(input));
 	}
 	
-	
+	@Disabled("@Disabled until CSV Reader Factorial Test #Fact active")
 	@ParameterizedTest(name = "{index}#  Number={0} , Factorial={1}")
 	@DisplayName("CSV Reader Factorial Test #Fact")
 	@Tag("Trading")
