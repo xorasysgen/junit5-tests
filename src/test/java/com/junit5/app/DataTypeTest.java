@@ -29,7 +29,7 @@ public class DataTypeTest {
 	@Test
 	@DisplayName("Testing data type min max")
 	void doDataTypeTest() {
-		String Datatype="Float";
+		String Datatype="Float1";
 		String [] expected=new String[2] ;
 		expected[0]=Long.MIN_VALUE+"";
 		expected[1]=Long.MAX_VALUE+"";

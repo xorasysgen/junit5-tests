@@ -31,8 +31,7 @@ public class WebServiceClient {
 
 		
 		try {
-			client.property(ClientProperties.CONNECT_TIMEOUT, 30000); // Setting Connection timed out equivalent to
-																		// request timed out 30 seconds
+			client.property(ClientProperties.CONNECT_TIMEOUT, 30000); // Setting Connection timed out equivalent to request timed out 30 seconds
 			client.property(ClientProperties.READ_TIMEOUT, 30000);// Setting read timed out equivalent it server not
 																	// responding in specified time 30 seconds
 			final WebTarget target = client.target(URLDecoder.decode(targetIP.concat(targetURI), StandardCharsets.UTF_8.toString()));
