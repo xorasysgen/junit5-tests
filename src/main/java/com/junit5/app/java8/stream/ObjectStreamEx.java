@@ -1,5 +1,8 @@
 package com.junit5.app.java8.stream;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -54,12 +57,25 @@ public class ObjectStreamEx {
 		
 	}
 	
+	public static void pathExplorer(String st) {
+		try {
+			Files.list(Paths.get(st))
+			.filter(Files::isDirectory)
+			.forEach(System.out::println);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	 
+	
 	public static void main(String[] args) {
 		ObjectStreamEx.runObjectStream();
 		ObjectStreamEx.searchObjectStream();
 		ObjectStreamEx.sortObjectStream();
 		ObjectStreamEx.sortAndFilterStream();
 		System.out.println(new ListBuilder().getPersonsList().size());
+		ObjectStreamEx.pathExplorer(".");
 	}
 
 }

@@ -25,7 +25,6 @@ public class DataTypeTest {
 		javaDataTypeLength=new JavaDataTypeLength();
 	}
 	
-	
 	@Test
 	@DisplayName("Testing data type min max")
 	void doDataTypeTest() {

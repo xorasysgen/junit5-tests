@@ -20,8 +20,7 @@ public class WebServiceClientTest {
 	void init() {
 		webServiceClient=new WebServiceClient();
 	}
-	
-	
+		
 	@Test
 	@DisplayName("Email with attachment test")
 	void webServiceClientCallEmailWebService() {

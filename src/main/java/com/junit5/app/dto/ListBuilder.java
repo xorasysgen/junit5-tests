@@ -8,7 +8,7 @@ public class ListBuilder {
 	private List<Person> persons=new ArrayList<Person>();
 	
 	public List<Person> getPersonsList(){
-		persons.add(new Person(3 ,"sushil","Male"));
+		persons.add(new Person(3 ,"Sushil","Male"));
 		persons.add(new Person(2 ,"James","Male"));
 		persons.add(new Person(1 ,"Benjamin","Male"));
 		persons.add(new Person(4 ,"LILLY","Female"));
@@ -21,6 +21,11 @@ public class ListBuilder {
 		persons.add(new Person(9 ,"EMMA","Female"));
 		
 		return persons;
+	}
+	
+	public Person ToUpperCase(Person p) {
+		p.setName(p.getName().toUpperCase());
+		return p;
 	}
 	
 	
