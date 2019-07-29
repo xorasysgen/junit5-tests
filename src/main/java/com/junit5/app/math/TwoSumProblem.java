@@ -8,17 +8,24 @@ import java.util.logging.Logger;
 public class TwoSumProblem {
 
 	private static final Logger logger = Logger.getLogger(TwoSumProblem.class.getName());
-	
+	//Integer[] numbers = { 2, 7, 11, 2, 89, 1, 9 };
+	//Integer target = 100;
 	public static Integer[] twoSum(Integer[] nums, int target) {
+		
 	    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 	    for (int i = 0; i < nums.length; i++) {
 	        int complement = target - nums[i];
-	        if (map.containsKey(complement) && map.get(complement) != i) {
+	        logger.info("complement~" + complement);
+	        if (map.containsKey(complement)) {
 	            return new Integer[] { map.get(complement),i };
 	        }
-	        map.put(nums[i], i);
+	        if(map.get(nums[i])==null)        
+	        	map.put(nums[i], i);
+	        //System.out.println(map);
 	    }
+	    
 	    return new Integer[] {-1,-1};
+	    
 	}
 	
 
@@ -30,7 +37,6 @@ public class TwoSumProblem {
 				logger.info(numbers[i] + " : " + numbers[j]);
 				if (numbers[i] + numbers[j] == target) {
 					logger.info("Found# [" + numbers[i] + " : " + numbers[j] + " ] = " + target);
-							
 					return new Integer[] {i,j};
 				}
 
@@ -42,10 +48,9 @@ public class TwoSumProblem {
 	}
 
 	public static void main(String[] args) {
-
 		Integer[] numbers = { 2, 7, 11, 2, 89, 1, 9 };
-		Integer target = 100;
-		System.out.println(Arrays.deepToString(TwoSumProblem.solveTwoSum(numbers, target)));
+		Integer target = 3;
+		//System.out.println(Arrays.deepToString(TwoSumProblem.solveTwoSum(numbers, target)));
 		System.out.println(Arrays.deepToString(TwoSumProblem.twoSum(numbers, target)));
 
 	}
