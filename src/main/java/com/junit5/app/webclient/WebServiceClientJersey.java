@@ -20,14 +20,14 @@ import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
-public class WebServiceClient {
+public class WebServiceClientJersey {
 
 	public List<String> callEmailWebService() {
 		List<String> result=new ArrayList<String>();
 		final Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
 		final String targetIP = "https://shramsuvidha.gov.in";
 		final String targetURI = "/sms-email-gateway/1.0/webservices/bulkemail/withattachment";
-		final File file=new File("E:\\81\\linux-book-materials6.pdf");
+		final File file=new File("C://Users//Admin//Desktop//Linux notes.pdf");
 
 		
 		try {

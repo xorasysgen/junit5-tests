@@ -10,15 +10,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.junit5.app.webclient.WebServiceClient;
+import com.junit5.app.webclient.WebServiceClientJersey;
 
-public class WebServiceClientTest {
+public class WebServiceClientJerseyTest {
 
-	private WebServiceClient webServiceClient=null;
+	private WebServiceClientJersey webServiceClient=null;
 	
 	@BeforeEach
 	void init() {
-		webServiceClient=new WebServiceClient();
+		webServiceClient=new WebServiceClientJersey();
 	}
 		
 	@Test

@@ -55,7 +55,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
+	//https://mvnrepository.com/artifact/org.springframework/spring-web
+	// consume web service
+	compile group: 'org.springframework', name: 'spring-web', version: '5.1.8.RELEASE'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9.2'
+
 	
-    
-    
-}
+   } 
