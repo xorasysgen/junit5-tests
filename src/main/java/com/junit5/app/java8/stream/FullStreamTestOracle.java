@@ -12,13 +12,34 @@ import com.junit5.app.dto.Person;
 //https://docs.oracle.com/javase/tutorial/collections/index.html
 //https://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html
 public class FullStreamTestOracle {
-	public List<String> streamFilterSortedMapThenCollectName() {
+	
+	public List<Person> streamFilterSortedOnlyDefault() {
+		List<Person> personName=null;
+		personName = new ListBuilder().getPersonsList()
+				.stream()
+				.filter(p -> p.getGender().equalsIgnoreCase("FEMALE"))
+				.sorted()
+				.collect(Collectors.toList());
+		return	personName;
+	}
+	
+	public List<String> streamFilterSortedAndCovertedMapThenCollectNamesOnly() {
 		List<String> personName=null;
 		personName = new ListBuilder().getPersonsList()
 				.stream()
 				.filter(p -> p.getGender().equalsIgnoreCase("FEMALE"))
-				.sorted(Comparator.comparing(Person::getId).thenComparing(Person::getName).reversed())
+				.sorted(Comparator.comparing(Person::getName).thenComparing(Person::getId).reversed())
 				.map(Person::getName).collect(Collectors.toList());
+		return	personName;
+	}
+	
+	public List<Person> streamFilterSortedMapThenCollectName() {
+		List<Person>  personName=null;
+		personName = new ListBuilder().getPersonsList()
+				.stream()
+				.filter(p -> p.getGender().equalsIgnoreCase("FEMALE"))
+				.sorted(Comparator.comparing(Person::getName).thenComparing(Person::getId))
+				.collect(Collectors.toList());
 		return	personName;
 	}
 	
@@ -26,7 +47,7 @@ public class FullStreamTestOracle {
 		List<Person> person=new ListBuilder().getPersonsList()
 				.stream()
 				.filter(p->p.getGender().equalsIgnoreCase("female"))
-				.sorted(Comparator.comparing(Person::getId).thenComparing(Person::getName).reversed())
+				.sorted(Comparator.comparing(Person::getId).thenComparing(Person::getName))
 				.collect(Collectors.toList());
 		return person;
 	}
@@ -42,6 +63,8 @@ public class FullStreamTestOracle {
 	
 
 	public static void main(String[] args) {
+		System.out.println(new FullStreamTestOracle().streamFilterSortedOnlyDefault());
+		System.out.println(new FullStreamTestOracle().streamFilterSortedAndCovertedMapThenCollectNamesOnly());
 		System.out.println(new FullStreamTestOracle().streamFilterSortedMapThenCollectName());
 		System.out.println(new FullStreamTestOracle().streamFilterSortedMapThenCollectPerson());
 		System.out.println(new FullStreamTestOracle().StreamFind().get());

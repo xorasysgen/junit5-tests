@@ -13,7 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public  class Person {
+public  class Person implements Comparable<Person> {
 
 	private Integer id; 
 	private String name;
@@ -23,6 +23,11 @@ public  class Person {
 	public String toUpper(String string) {
 		return string.toUpperCase();
 		
+	}
+
+	@Override
+	public int compareTo(Person o) {
+		return this.getName().compareTo(o.getName());
 	}
 
 }
